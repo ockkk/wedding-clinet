@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Main } from './main/Main';
 import { Impormation } from './information/Information';
 import { Calender } from './calender/Calender';
@@ -7,8 +7,10 @@ import { Map } from './map/Map';
 import { AccountNumber } from './accountNumber/AccountNumber';
 import { Comment } from './comment/Comment';
 import './App.css';
+import './firebase/firebase';
 
 function App() {
+
   return (
     <div className="App">
       <div className="intro-wrap">
