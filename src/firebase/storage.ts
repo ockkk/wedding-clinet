@@ -1,6 +1,5 @@
 // storage.js
-import * as firebase from 'firebase/app';
-import { getStorage,  } from 'firebase/storage';
+import { getStorage } from 'firebase/storage';
 
 // 파일 전체 목록 부르기 + url 가져오기
 export async function getThumbnail() {
