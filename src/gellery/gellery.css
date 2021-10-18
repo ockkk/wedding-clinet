@@ -1,0 +1,21 @@
+.slide {
+  overflow: hidden;
+  height: 530px;
+}
+
+.image-wrap {
+  height: 500px;
+  width: 100%;
+  display: flex !important;
+  background-color: #f3f3f3;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  max-width: 510px;
+}
+
+.slick-dots {
+  height: 50px;
+}

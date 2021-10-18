@@ -69,7 +69,6 @@ export function Comment() {
     const querySnapshot = await getDocs(collection(db, "comment"));
     const commentList: CommentList[] = [];
     querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data().comment}`);
       commentList.push({
         key: doc.id,
         name: doc.data().name,

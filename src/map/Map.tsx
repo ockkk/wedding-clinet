@@ -24,9 +24,8 @@ export function Map() {
     const marker = new kakao.maps.Marker({
       position: markerPosition
     }); // 마커 생성
+    
     marker.setMap(map); // 마커가 지도 위에 표시되도록 설정합니다
-
-    return () => { };
   }, [options, kakao.maps]);
 
   return (
