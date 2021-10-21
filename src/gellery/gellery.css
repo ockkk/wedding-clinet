@@ -19,3 +19,13 @@
 .slick-dots {
   height: 50px;
 }
+
+.prev-arrow {
+  transform: translate(150%, -50%) !important;
+  background-color: black;
+}
+
+.next-arrow {
+  transform: translate(-150%, -50%) !important;
+  background-color: black;
+}

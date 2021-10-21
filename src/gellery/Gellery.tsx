@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Slider from 'react-slick';
+import Slider, {CustomArrowProps} from 'react-slick';
 import { getImageUrl } from '../helper/getImageUrl';
 import './gellery.css';
 import "slick-carousel/slick/slick.css"; 
@@ -10,8 +10,34 @@ const settings = {
   infinite: true,
   speed: 500,
   slidesToShow: 1,
-  slidesToScroll: 1
+  slidesToScroll: 1,
+  nextArrow: <NextArrow />,
+  prevArrow: <PrevArrow />,
 };
+
+function NextArrow(props: CustomArrowProps) {
+  const { className, style, onClick } = props;
+  const calssNames = `${className} next-arrow`
+
+  return (
+    <div
+      className={calssNames}
+      onClick={onClick}
+    />
+  );
+}
+
+function PrevArrow(props: CustomArrowProps) {
+  const { className, style, onClick } = props;
+  const calssNames = `${className} prev-arrow`
+
+  return (
+    <div
+      className={calssNames}
+      onClick={onClick}
+    />
+  );
+}
 
 export function Gellery() {
   const [ ImageUrlList, setImageUrlList ] = useState<string[]>([]);
