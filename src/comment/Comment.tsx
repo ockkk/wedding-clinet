@@ -2,12 +2,13 @@ import { useState, useCallback, useEffect } from 'react';
 import { db } from '../firebase/firebase';
 import { collection, addDoc, getDocs, deleteDoc, doc, getDoc } from 'firebase/firestore';
 import { useForm } from "react-hook-form";
-
+import './comment.css';
 interface CommentList {
   key: string;
   name: string;
   password: string;
   comment: string;
+  createdTime: number;
 }
 
 export function Comment() {
@@ -54,10 +55,27 @@ export function Comment() {
 
 
   const addComment = async () => {
+    if(name.length === 0) {
+      alert('이름을 입력해 주세요');
+      return;
+    }
+
+    if(comment.length === 0) {
+      alert('축하글을 입력해 주세요');
+      return;
+    }
+
+    if(password.length === 0) {
+      alert('비밀번호를 입력해 주세요');
+      return;
+    }
+
+    const createdTime = new Date().getTime();
     await addDoc(collection(db, "comment"), {
       name,
       comment,
       password,
+      createdTime,
     });
     setName('');
     setPassword('');
@@ -74,10 +92,12 @@ export function Comment() {
         name: doc.data().name,
         comment: doc.data().comment,
         password: doc.data().password,
+        createdTime: doc.data().createdTime,
       })
     });
-  
-    setCommentList(commentList.reverse());
+
+    const sortedCommentList = commentList.sort((acc, curr) => curr.createdTime - acc.createdTime);
+    setCommentList(sortedCommentList);
   };
 
   const onDeleteComment = async () => {
@@ -123,10 +143,12 @@ export function Comment() {
         ))}
       </div>
       {isDelete &&
-        <div>
-          <input type="password" name="password" value={deletePassword} onChange={onChangeDeletePassword} />
-          <button onClick={onDeleteComment}>삭제</button>
-          <button onClick={closeDeleteModal}>취소</button>
+        <div className="modal">
+          <div className="modal-body">
+            <input type="password" name="password" value={deletePassword} onChange={onChangeDeletePassword} />
+            <button onClick={onDeleteComment}>삭제</button>
+            <button onClick={closeDeleteModal}>취소</button>
+          </div>
         </div>
       }
     </section>
