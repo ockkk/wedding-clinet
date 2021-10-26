@@ -3,10 +3,13 @@
   display: flex;
   justify-content: center;
   line-height: 1.6rem;
+  background-color: #c5e5fd;
 }
 
 .body-wrap {
   max-width: 510px;
+  padding: 0px 20px;
+  background-color: #ffffff;
 }
 
 .App-logo {
@@ -42,4 +45,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+section:first-child {
+  margin: 0;
+}
+
+section {
+  margin: 100px 0px;
 }

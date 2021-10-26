@@ -1,10 +1,13 @@
 .slide {
   overflow: hidden;
-  height: 530px;
+  height: 800px;
+  /* display: flex !important;
+  align-content: center;
+  align-items: center; */
 }
 
 .image-wrap {
-  height: 500px;
+  height: 770px;
   width: 100%;
   display: flex !important;
   background-color: #f3f3f3;
@@ -14,6 +17,8 @@
 
 .image {
   max-width: 510px;
+  width: 100%;
+  height: auto;
 }
 
 .slick-dots {
@@ -21,6 +26,7 @@
 }
 
 .prev-arrow {
+  z-index: 10;
   transform: translate(150%, -50%) !important;
   background-color: black;
 }

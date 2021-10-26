@@ -31,8 +31,8 @@ export function Map() {
   return (
     <section>
       <h1>오시는 길</h1>
-      <img src="/지도.png" alt="지도" />
-      <div id="map" style={{ width: "500px", height: "400px" }} ref={kakaoMapContainer} />
+      {/* <img src="/지도.png" alt="지도" /> */}
+      <div id="map" style={{ width: "100%", height: "400px" }} ref={kakaoMapContainer} />
       <div>
         <a href={kakaoMap} target="_blank" rel="noreferrer">카카오 길 찾기</a>
         <a href={naverMap} target="_blank" rel="noreferrer">네이버 길 찾기</a>

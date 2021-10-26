@@ -13,6 +13,7 @@ const settings = {
   slidesToScroll: 1,
   nextArrow: <NextArrow />,
   prevArrow: <PrevArrow />,
+  // adaptiveHeight: true
 };
 
 function NextArrow(props: CustomArrowProps) {
