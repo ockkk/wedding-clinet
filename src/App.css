@@ -1,18 +1,38 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+@font-face {
+  font-family: "nanum";
+  src: url("font/nanumson.ttf");
+}
+
+@font-face {
+  font-family: "myeonjo-regular";
+  src: url("font/Nanum_Myeongjo/NanumMyeongjo-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Noto_Serif_KR-regular";
+  src: url("font/Noto_Serif_KR/NotoSerifKR-Regular.otf");
+}
+
 .App {
-  text-align: center;
-  display: flex;
+  text-align: -webkit-center;
   justify-content: center;
   line-height: 1.6rem;
-  background-color: #c5e5fd;
+  /* background-color: #c5e5fd; */
+  font-family: Noto_Serif_KR-regular;
 }
 
 .body-wrap {
-  max-width: 510px;
-  padding: 0px 20px;
-  background-color: #ffffff;
+  max-width: 420px;
+  /* background-color: #f5f5f5; */
 }
 
-.App-logo {
+p {
+  margin: 0;
+}
+
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -45,12 +65,12 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
 
-section:first-child {
+/* section:first-child {
   margin: 0;
 }
 
 section {
   margin: 100px 0px;
-}
+} */
