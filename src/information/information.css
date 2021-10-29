@@ -1,0 +1,33 @@
+.information-section {
+  padding: 3rem 2.5rem;
+}
+
+h1 {
+  text-align: left;
+  margin-bottom: 1rem;
+  color: #646464;
+}
+
+.information-text {
+  text-align: left;
+  line-height: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.contact-wrap {
+  border-top: 1px solid #646464;
+  padding-top: 2rem;
+}
+
+.contact-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact-box > span > p {
+  font-size: 14px;
+}
+
+.contact-box > span > b {
+  margin: 0 10px;
+}

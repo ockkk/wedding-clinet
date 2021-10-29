@@ -1,4 +1,7 @@
 import { useEffect, useMemo, useRef } from "react"
+import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import './map.css';
 
 const LATITUDE = 37.259270289658666; // 위도
 const LONGITUDE = 127.03127376600385; // 경도
@@ -30,43 +33,56 @@ export function Map() {
 
   return (
     <section>
-      <h1>오시는 길</h1>
-      {/* <img src="/지도.png" alt="지도" /> */}
+      <h1 className="map-title">오시는 길</h1>
       <div id="map" style={{ width: "100%", height: "400px" }} ref={kakaoMapContainer} />
-      <div>
-        <a href={kakaoMap} target="_blank" rel="noreferrer">카카오 길 찾기</a>
-        <a href={naverMap} target="_blank" rel="noreferrer">네이버 길 찾기</a>
+      <div className="map-icon-wrap">
+        <span className="naver-icon-wrap">
+          <a className="map-icon-circle" href={kakaoMap} target="_blank" rel="noreferrer">
+            <FontAwesomeIcon className="naver-icon" icon={faMapMarkerAlt} size="lg"/>
+          </a>
+          <p>네이버</p>
+        </span>
+        <span>
+          <a className="map-icon-circle" href={naverMap} target="_blank" rel="noreferrer">
+            <FontAwesomeIcon className="kakao-icon" icon={faMapMarkerAlt} size="lg"/>
+          </a>
+          <p>카카오</p>
+        </span>
       </div>
-      <div>
-        <h2>이비스 엠배서더 수원 TEL 031-230-5500</h2>
-        <p>경기 수원시 팔달구 권광로 132(경기 수원시 팔달구 인계동 1132-12)</p>
-      </div>
-      <div>
-        <h2>지하철</h2>
-        <p>
-          분당선 수원시청역 2번 출구 (도보 3분)
+      <div className="location-text-wrap">
+        <div>
+          <h2>경기 수원시 팔달구 권광로 132</h2>
+          {/* <h2>(경기 수원시 팔달구 인계동 1132-12)</h2> */}
+          <h2>이비스 엠배서더 수원</h2>
+          <p className="phone-number">031-230-5500</p>
+        </div>
+        <div>
+          <h2 className="title-text">지하철</h2>
+          <p className="sub-text">
+            [분당선 수원시청역] 2번 출구
+          </p>
+        </div>
+        <div>
+          <h2 className="title-text">승용차</h2>
+          <p className="sub-text">
+            [영동고속도로 이용시]
+          </p>
+          <p className="sub-text">
+            동수원IC → 광주/수지방면(P턴) → <br /> 300m 직진 후 월드컵경기장 방향 우회전 → <br />직진 후 고가도록 진입 → 수원시청역 사거리 지나 200m 후 좌측
+          </p>
           <br />
-          (1호선 수원역에서 분당선으로 환승 - 수원시청역 하차)
-        </p>
-      </div>
-      <div>
-        <h2>승용차</h2>
-        <p>
-          영동고속도로 이용시(동수원IC 에서 10분 소요)
-        </p>
-        <p>
-          동수원IC -{">"} 광주/수지방면(P턴) -{">"} 300m 직진 후 월드컵경기장 방향 우회전 <br /> -{">"} 직진 후 고가도록 진입 -{">"} 수원시청역 사거리 지나 200m 후 좌측
-        </p>
-        <br />
-        <p>경부고속도록 이용시 (수원IC 에서 20분 소요)</p>
-        <p>
-          수원IC -{">"} 수원방향 좌회전(42번 국도) -{">"} 고가도로 밑 공항버스터미널 앞 좌회전 -{">"} 수원시청역 사거리 지나 200m 후 좌측
-        </p>
-      </div>
-      <div>
-        <h2>전세 버스</h2>
-        <p>10시 출발 / 창녕유치원 앞(구 창녕초등학교)</p>
-        <p>10시 30분 출발 / 창녕 농협 앞 출발</p>
+          <p className="sub-text">
+            [경부고속도록 이용시]
+          </p>
+          <p className="sub-text">
+            수원IC → 수원방향 좌회전(42번 국도) → <br /> 고가도로 밑 공항버스터미널 앞 좌회전 → <br />수원시청역 사거리 지나 200m 후 좌측
+          </p>
+        </div>
+        <div>
+          <h2 className="title-text">전세 버스</h2>
+          <p className="sub-text">10시 출발 / 창녕유치원 앞(구 창락초등학교)</p>
+          <p className="sub-text">10시 30분 출발 / 창녕 농협 앞 출발</p>
+        </div>
       </div>
     </section>
   )

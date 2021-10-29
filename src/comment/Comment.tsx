@@ -1,8 +1,9 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { db } from '../firebase/firebase';
 import { collection, addDoc, getDocs, deleteDoc, doc, getDoc } from 'firebase/firestore';
 import { useForm } from "react-hook-form";
 import './comment.css';
+import { parseCreatedTime } from '../helper/parseCreatedTime';
 interface CommentList {
   key: string;
   name: string;
@@ -20,6 +21,8 @@ export function Comment() {
   const [deletePassword, setDeletePassword] = useState<string>('');
   const [selectCommentKey, setSelectCommentKey] = useState<string>('');
   const { register, handleSubmit, formState: { errors } } = useForm();
+
+  const commentRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     getComment();
@@ -118,27 +121,66 @@ export function Comment() {
     }
   };
 
+  useEffect(() => {
+    if (commentRef === null || commentRef.current === null) {
+      return;
+    }
+    commentRef.current.style.height = '38px';
+    commentRef.current.style.height = commentRef.current.scrollHeight + 'px';
+  }, []);
+
+  const handleResizeHeight = useCallback(() => {
+    if (commentRef === null || commentRef.current === null) {
+      return;
+    }
+    commentRef.current.style.height = '38px';
+    commentRef.current.style.height = commentRef.current.scrollHeight + 'px';
+  }, []);
+
   return (
     <section>
-      <form onSubmit={handleSubmit(addComment)}>
-        <span>
-          <label htmlFor="name">이름: </label>
-          <input type="text" {...register('name', { required: true, maxLength: 10 })} value={name} onChange={onChangeName} />
-          {errors.name && errors.name.type === "maxLength" && <span>10자 이내로 작성해 주세요</span> }
-        </span>
-        <span>
-          <label htmlFor="password">비밀번호: </label>
-          <input type="password" name="password" value={password} onChange={onChangePassword} />
-        </span>
-        <textarea name="comment" cols={30} rows={5} value={comment} onChange={onChangeComment} />
-        <input type="submit" value="축하하기" />
+      <form className='comment-form' onSubmit={handleSubmit(addComment)}>
+        <div className="comment-wrap">
+          <span>
+            <label htmlFor="name">이름: </label>
+            <input type="text" {...register('name', { required: true, maxLength: 10 })} value={name} onChange={onChangeName} />
+            {errors.name && errors.name.type === "maxLength" && <span>10자 이내로 작성해 주세요</span> }
+          </span>
+          <span>
+            <label htmlFor="password">비밀번호: </label>
+            <input type="password" name="password" value={password} onChange={onChangePassword} />
+          </span>
+        </div>
+        <div className="textarea-wrap">
+          <textarea 
+            className="comment-textarea" 
+            name="comment" 
+            cols={30} 
+            rows={5} 
+            value={comment} 
+            onChange={onChangeComment} 
+            onInput={handleResizeHeight}
+            placeholder="축하 메시지를 작성해 주세요" 
+            ref={commentRef}
+          />
+          <button type="submit" className="submit-button">
+            축하하기
+          </button>
+        </div>
       </form>
-      <div>
+      <div className="comment-list-wrap">
         {commentList.map(comment => (
-          <div key={comment.key}>
-            <p>{comment.name}</p>
-            <span>{comment.comment}</span>
-            <button id={comment.key} onClick={openDeleteModal}>삭제하기</button>
+          <div key={comment.key} className='comment-list-inner'>
+            <div className='comment-box-name'>
+              <span>
+                <b>{comment.name}</b>
+                <p>{parseCreatedTime(comment.createdTime)}</p>
+              </span>
+              <button className="delete-button" id={comment.key} onClick={openDeleteModal}>x</button>
+            </div>
+            <div>
+              <span>{comment.comment}</span>
+            </div>
           </div>
         ))}
       </div>

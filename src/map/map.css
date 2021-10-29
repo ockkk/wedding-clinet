@@ -1,0 +1,63 @@
+.map-title {
+  text-align: center;
+  margin: 2rem;
+}
+
+.location-text-wrap {
+  padding: 3rem;
+  text-align: left;
+}
+
+.location-text-wrap > div {
+  margin-bottom: 2rem;
+}
+
+.location-text-wrap > div > h2 {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.phone-number {
+  font-size: 14px;
+  color: #adadad;
+  font-weight: 600;
+}
+
+.title-text {
+  border-bottom: 1px solid #eaeaea;
+  line-height: 2.5rem;
+}
+
+.sub-text {
+  font-size: 14px;
+}
+
+.map-icon-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.map-icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  border-radius: 50%;
+  border: 1px solid #c3c3c3;
+}
+
+.naver-icon-wrap {
+  margin-right: 20px;
+}
+
+.naver-icon {
+  color: #2db300;
+}
+
+.kakao-icon {
+  color: #fae100;
+}

@@ -1,8 +1,33 @@
+.main-section {
+  background-color: rgba(250, 240, 230, 0.4);
+  padding: 0px 20px;
+}
+
 .main_img {
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
-  height: 600px;
+  height: 555px;
+  background-position: center top;
+  margin-top: -30px;
+}
+
+.main-title {
+  position: absolute;
+  top: 3%;
+  left: 50%;
+  transform: translate(-50%, -6%);
+  line-height: 2.7rem;
+  font-family: nanum;
+}
+
+.main-title > h3 {
+  font-size: 38px;
+  font-weight: 500;
+}
+
+.main-text {
+  text-align: right;
+  padding-bottom: 2rem;
 }
 
 /* flower leaf animations */

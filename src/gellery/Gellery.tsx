@@ -48,7 +48,7 @@ export function Gellery() {
   },[])
 
   return (
-    <section>
+    <section className="gallery-section">
       <h1>사진첩</h1>
       <Slider className="slide" {...settings}>
         {ImageUrlList.map(url => {

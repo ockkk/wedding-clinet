@@ -1,0 +1,29 @@
+.calender-section {
+  padding: 3rem 2.5rem 4rem 2.5rem;
+  /* background-color: #efefef63; */
+}
+
+.month-circle {
+  line-height: 32px;
+  text-align: center;
+  width: 35px;
+  height: 35px;
+  padding: 10px;
+  border-radius: 50%;
+  border: 2px solid #ffa9a9;
+  background-color: #ffa9a9;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.calender-img {
+  width: 90%;
+}
+
+.date-text {
+  border-bottom: 2px solid #ffa9a9;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  margin: 0 1rem;
+  color: #585858;
+}
